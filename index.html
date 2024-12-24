@@ -9,7 +9,14 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Elliott Town.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Elliott Town" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="977CDA03-FAF7-449F-AF07-F6B74EC4E6E3" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="startup" color="green"></tw-tag><tw-passagedata pid="1" name="Beginning" tags="" position="925,450" size="100,100">As sunlight pours into your room you stir in bed. The day is calling, but it&#39;s been so nice to get some rest! You&#39;ve been working like an elf in one of those grey market Christmas sweatshops lately, since as a member of the Elliott family you&#39;ve been terribly busy organising the annual Elliott Town Christmas Fair. With over 10 squillion people expected every day, it&#39;s going to be the biggest one yet!
+<tw-storydata name="Elliott Town" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="977CDA03-FAF7-449F-AF07-F6B74EC4E6E3" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="startup" color="green"></tw-tag><tw-tag name="header" color="green"></tw-tag><tw-tag name="debug-startup" color="green"></tw-tag><tw-passagedata pid="1" name="Beginning" tags="" position="875,375" size="100,100">(set:$showFooter to false)
+As sunlight pours into your room you stir in bed. The day is calling, but it&#39;s been so nice to get some rest! You&#39;ve been working like an elf in one of those grey market Christmas sweatshops lately, since as a member of the Elliott family you&#39;ve been terribly busy organising the annual Elliott Town Christmas Fair. With over 10 squillion people expected every day, it&#39;s going to be the biggest one yet!
 
 But wait...
 
@@ -22,9 +29,9 @@ Who exactly are you?
 (link-reveal-goto: &quot;Zara, Minister of Health and Parties&quot;, &quot;Wake Up&quot;, (button:))[(set:$player to &quot;Zara&quot;)]
 (link-reveal-goto: &quot;Natasha, Queen of Luck and Fortune&quot;, &quot;Wake Up&quot;, (button:))[(set:$player to &quot;Tash&quot;)]
 (link-reveal-goto: &quot;Richard, Master of Pets&quot;, &quot;Wake Up&quot;, (button:))[(set:$player to &quot;Rick&quot;)]
-(link-reveal-goto: &quot;Linda, Head of Spritual Tidings&quot;, &quot;Wake Up&quot;, (button:))[(set:$player to &quot;Linda&quot;)]
+(link-reveal-goto: &quot;Linda, Head of Positive Spritual Tidings&quot;, &quot;Wake Up&quot;, (button:))[(set:$player to &quot;Linda&quot;)]
 &lt;==
-</tw-passagedata><tw-passagedata pid="2" name="Wake Up" tags="" position="1050,450" size="100,100"> (set: _trait to (cond:
+</tw-passagedata><tw-passagedata pid="2" name="Wake Up" tags="" position="1000,375" size="100,100"> {(set: _trait to (cond:
  	$player is &quot;Zara&quot;, &quot;bushy, red tail and perky ears&quot;,
     $player is &quot;Tash&quot;, &quot;voluptous, blue tail and pointed snout&quot;,
     $player is &quot;Rick&quot;, &quot;green head and iridescent feathers&quot;,
@@ -45,13 +52,33 @@ Who exactly are you?
     $player is &quot;Linda&quot;, &quot;Sandy Spot&quot;,
  ))
  
+ (set: $playerFamily  to (cond:
+ 	$player is &quot;Zara&quot;, &quot;Tash the blue fox, Rick the mallard duck, Linda the turtle, and Josh the meerkat&quot;,
+    $player is &quot;Tash&quot;, &quot;Zara the red panda, Rick the mallard duck, Linda the turtle, and Josh the meerkat&quot;,
+    $player is &quot;Rick&quot;, &quot;Zara the red panda, Tash the blue box, Linda the turtle, and Josh the meerkat&quot;,
+    $player is &quot;Linda&quot;, &quot;Zara the red panda, Tash the blue fox, Rick the mallard duck, and Josh the meerkat&quot;,
+ ))
+ 
+ (set: $taskDialogue to (cond:
+    $player is &quot;Zara&quot;, &quot;collect an important package. It was stolen by the monkeys at the Tree Canopy in Elmbourne and we need it for the fair opening at the Grand Plaza!&quot;,
+    $player is &quot;Tash&quot;, &quot;find us a fresh set of four leaf clovers. I think you found some in Oldcastle before right? I&#39;m really worried that something might go wrong in the fair opening at the Grand Plaza, so your luck and good fortune would really help!&quot;,
+    $player is &quot;Rick&quot;, &quot;fetch some food from the supermarket. It&#39;s very important for the opening at the Grand Plaza!&quot;,
+    $player is &quot;Linda&quot;, &quot;go help the animals at the aquarium! I heard there&#39;s a leak and I&#39;m worried it will affect the fair opening at the Grand Plaza since it&#39;s so close by!&quot;,
+))
+
+(set: $importantTask to (cond:
+    $player is &quot;Zara&quot;, &quot;Retrieve an important package from the monkeys at the Tree Canopy in Elmbourne.&quot;,
+    $player is &quot;Tash&quot;, &quot;Find a fresh set of four leaf clovers in Oldcastle.&quot;,
+    $player is &quot;Rick&quot;, &quot;Fetch some food from the supermarket.&quot;,
+    $player is &quot;Linda&quot;, &quot;Help the animals at the aquarium.&quot;,
+))}
 Ahh yes, of course you are $player!
 
 How could anyone forget when they see your _trait.
 
 For after all everyone in Elliott Town is their own spirit animal, making you a _animal.
 
-Well, not much to it now but to [[get up and start the day-&gt;$home]].</tw-passagedata><tw-passagedata pid="3" name="$home" tags="" position="1175,450" size="100,100"></tw-passagedata><tw-passagedata pid="4" name="Treetops" tags="" position="1875,625" size="100,100">{
+Well, not much to it now but to (link-reveal-goto:&quot;get up and start the day&quot;, $home)[(set:$showFooter to true)].</tw-passagedata><tw-passagedata pid="3" name="Treetops" tags="" position="1875,625" size="100,100">{
 (if:$player is not &quot;Zara&quot;)[It looks like this is where someone calls home, and it&#39;s known that red pandas live around this neck of the woods so it&#39;s likely Zara&#39;s room. There&#39;s a spot of red fur on a portion of a branch that&#39;s much smoother and lighter than the bark around it. Perhaps that&#39;s where Zara sleeps?]
 (else:)[
 	(if:visits is 1)[You let out a big yawn as you sit up, placing your paws on the elm tree branch you&#39;ve called your bed for the last few years. You&#39;ve made quite a nice place for yourself in Elmbourne! That&#39;s what they call the forest here, just east of Elliott Town. With your adept tree navigation and innate forestry knowledge you&#39;ve had no problems creating a beautiful environment, evidenced by the |bookcase&gt;[bookcase] you cut into the trunk, a |stand&gt;[stand] to show off your music collection, and |awards&gt;[multiple awards] on display.]
@@ -67,53 +94,76 @@ Below you is a [[forest glade-&gt;Forest Glade]].
 
 (box:&quot;=XXX=&quot;)[(text-style:&#39;italic&#39;)[|description&gt;[]]]
 
-(click-rerun:?bookcase)[(replace:?description)[It&#39;s quite a fine bookcase, and notably a stroke of genius by the creator(if:$player is &quot;Zara&quot;)[, yourself,] to cut it out of the tree trunk. No extra wood required! You can see a selection of Sarah J. Maas novels along with several other popular books.]]
+{(click-rerun:?bookcase)[(replace:?description)[It&#39;s quite a fine bookcase, and notably a stroke of genius by the creator(if:$player is &quot;Zara&quot;)[, yourself,] to cut it out of the tree trunk. No extra wood required! You can see a selection of Sarah J. Maas novels along with several other popular books.]]
 (click-rerun:?stand)[(replace:?description)[There&#39;s an assortment of records on display but a clear favourite is Taylor Swift.]]
-(click-rerun:?awards)[(replace:?description)[Inspecting the awards you see several for &quot;Elliott Town Nurse of the Year&quot;, as well as an award for &quot;Assisting and Supporting the Birth of 1 Million Babies&quot;!]]</tw-passagedata><tw-passagedata pid="5" name="Fox Den" tags="" position="1650,575" size="100,100">(if:$foxDenLightOn)[(go-to:&quot;Fox Den Light On&quot;)]
-(else:)[(go-to:&quot;Fox Den Light Off&quot;)]</tw-passagedata><tw-passagedata pid="6" name="Lake North" tags="" position="2175,675" size="100,100">(if:$player is &quot;Rick&quot; and visits is 1)[With a sharp ruffle of your feathers and a quick stretch of your webbed feet you&#39;re awake and ready for action. Taking a brief look around you, you feel a significant sense of contentedness. You&#39;ve made a lovely home for yourself here in Lakeview, and it&#39;s so great to have Linda, the turtle, living in the same area.]
+(click-rerun:?awards)[(replace:?description)[Inspecting the awards you see several for &quot;Elliott Town Nurse of the Year&quot;, as well as an award for &quot;Assisting and Supporting the Birth of 1 Million Babies&quot;!]]}</tw-passagedata><tw-passagedata pid="4" name="Fox Den" tags="" position="1650,575" size="100,100">(if:$foxDenLightOn)[(go-to:&quot;Fox Den Light On&quot;)]
+(else:)[(go-to:&quot;Fox Den Light Off&quot;)]</tw-passagedata><tw-passagedata pid="5" name="Lake North" tags="" position="2175,675" size="100,100">(if:$player is &quot;Rick&quot; and visits is 1)[With a sharp ruffle of your feathers and a quick stretch of your webbed feet you&#39;re awake and ready for action. Taking a brief look around you, you feel a significant sense of contentedness. You&#39;ve made a lovely home for yourself here in Lakeview, and it&#39;s so great to have Linda, the turtle, living in the same area.]
 (if:$player is not &quot;Rick&quot;)[Looking over the grassy clearing next to the waterline you can see a flattened patch of grass where a small pile of feathers lie. Perhaps that&#39;s where Rick sleeps?]
+(if:$player is &quot;Rick&quot; and visits &gt; 1)[It&#39;s your peaceful, grassy home by the water.]
 
 You can see a |bookcase&gt;[bookcase], a |fridge&gt;[fridge], and a |computer&gt;[computer].
 
 You can go to the [[Lakeview viewing platform-&gt;Lakeview Viewing Platform]].
 
-(if:$player is &quot;Rick&quot; or $player is &quot;Linda&quot;)[You can also go [[into the lake-&gt;Inside Lake]]]
+(if:$player is &quot;Rick&quot; or $player is &quot;Linda&quot;)[You can also go [[into the lake-&gt;Inside Lake]].]
 
 
 (box:&quot;=XXX=&quot;)[(text-style:&#39;italic&#39;)[|description&gt;[]]]
 
-(click-rerun:?fridge)[(replace:?description)[The fridge is stocked full of various kinds of beers, including Elephant Beer. An interesting beer to drink in Elliott Town, land of the spirit animals...]]
+{(click-rerun:?fridge)[(replace:?description)[The fridge is stocked full of various kinds of beers, including Elephant Beer. An interestingly named beer to drink in a world of animals.]]
 (click-rerun:?bookcase)[(replace:?description)[It&#39;s almost entirely made up of science fiction and fantasy novels.]]
-(click-rerun:?computer)[(replace:?description)[The screen shows a recent article on the current years most popular trends for web footed folk.]]
-</tw-passagedata><tw-passagedata pid="7" name="Sandy Spot" tags="" position="2175,925" size="100,100">(if:$player is &quot;Linda&quot; and visits is 1)[The thick, green plants around you rustle as you stretch out our limbs and neck. Even as a turtle yourself you&#39;re still amazed how far your neck can extend! You&#39;ve made a lovely home for yourself here in Lakeview, and it&#39;s so great to have Rick, the mallard duck, living in the same area. You step out from your natural bed of reedy plants to feel the moist sand clumping on your flippers.]
+(click-rerun:?computer)[(replace:?description)[The screen shows a recent article on the current years most popular tech trends for web footed folk.]]}
+</tw-passagedata><tw-passagedata pid="6" name="Sandy Spot" tags="" position="2175,925" size="100,100">(if:$player is &quot;Linda&quot; and visits is 1)[The thick, green plants around you rustle as you stretch out our limbs and neck. Even as a turtle yourself you&#39;re still amazed how far your neck can extend! You&#39;ve made a lovely home for yourself here in Lakeview, and it&#39;s so great to have Rick, the mallard duck, living in the same area. You step out from your natural bed of reedy plants to feel the moist sand clumping on your flippers.]
 (if:$player is not &quot;Linda&quot;)[At the end of the waterline to your left you can see a small flattened patch amongst the thick, reedy plants there. That must be where Linda sleeps.]
 Looking around this sandy spot (if:$player is &quot;Linda&quot;)[you call home] you can see a |bookcase&gt;[bookcase], a |table&gt;[table], and a |chair&gt;[chair].
 
 You can go to to the [[Lakeview viewing platform-&gt;Lakeview Viewing Platform]].
 
-(if:$player is &quot;Rick&quot; or $player is &quot;Linda&quot;)[You can also go [[into the lake-&gt;Inside Lake]]].
+(if:$player is &quot;Rick&quot; or $player is &quot;Linda&quot;)[You can also go [[into the lake-&gt;Inside Lake]].]
 
 
 (box:&quot;=XXX=&quot;)[(text-style:&#39;italic&#39;)[|description&gt;[]]]
 
-(click-rerun:?table)[(replace:?description)[A large art diary is laid open, showing a work in progress watercolour painting of a blue whale family. Pots of water and various painting sets are sprawled across the table.]]
+{(click-rerun:?table)[(replace:?description)[A large art diary is laid open, showing a work in progress watercolour painting of a blue whale family. Pots of water and various painting sets are sprawled across the table.]]
 (click-rerun:?bookcase)[(replace:?description)[There are several large tomes with varying acronyms. DSM, EMDR, CBT, TGIF... That last one doesn&#39;t seem to fit in...]]
-(click-rerun:?chair)[(replace:?description)[Looks like the kind of chair that would make someone relaxed, comfortable, and ready to discuss deeply troubling issues.]]
-</tw-passagedata><tw-passagedata pid="8" name="Aquarium" tags="" position="1275,575" size="100,100">This is the aquarium.
+(click-rerun:?chair)[(replace:?description)[Looks like the kind of chair that would make someone relaxed, comfortable, and ready to discuss deeply troubling issues.]]}
+</tw-passagedata><tw-passagedata pid="7" name="Aquarium" tags="" position="1275,575" size="100,100">You&#39;re in an aquarium, which now that you think about it sounds a little strange for a town entirely occupied by animals.
 
-Outside is the [[Grand Plaza]].</tw-passagedata><tw-passagedata pid="9" name="Grand Plaza" tags="" position="1275,725" size="100,100">This is the Grand Plaza.
+Looking around, you realise that it isn&#39;t really an aquarium the way you know it. It&#39;s more like a day spa! An aquarium where the animals can come and go, and choose between different aquatic environments that suit their fancy. On your left the wall is entirely glass, and inside you can see fish, sharks, manta rays and other turtles that look purely content and happy gliding along the mild currents generated by silent fans inside the water.
 
-To the west is a [[supermarket-&gt;Supermarket]].
+(if: $player is &quot;Linda&quot; and $currentTask is $importantTask)[As lovely as it is watching the animals enjoy themselves, you know you&#39;re here to help someone. To your right you can see the [[reception desk-&gt;Reception Desk]], perhaps the seal there knows what&#39;s needed?]
 
-To the south are [[Elliott Town Headquarters-&gt;Headquarters]].
+Outside is the [[Grand Plaza]].</tw-passagedata><tw-passagedata pid="8" name="Grand Plaza" tags="" position="1275,725" size="100,100">Before you is the Grand Plaza, an impressively large square that contains the Christmas Fair every year. Spirit animals are everywhere, setting up stalls, sticking up posters, cooking food (it smells amazing!), everyone doing their part to create the best fair yet.
 
-To the north is an [[aquarium-&gt;Aquarium]].
+There is a stage at the centre of the square where the fair will begin with speeches and several live performances.
 
-[[Central Station]] is east.</tw-passagedata><tw-passagedata pid="10" name="Headquarters" tags="" position="1275,900" size="100,100">This is Elliott Town Headquarters.
+There is a [[supermarket-&gt;Supermarket]] to the west.
 
-Outside is the [[Grand Plaza]].</tw-passagedata><tw-passagedata pid="11" name="Meerkat Burrows" tags="" position="1600,950" size="100,100">These are the meerkat burrows.
+To the south is a giant building with a rather stately presence. That must be the [[Elliott Town Headquarters-&gt;Headquarters]].
 
-To the north are the [[city outskirts-&gt;Oldcastle]].</tw-passagedata><tw-passagedata pid="12" name="Forest Glade" tags="" position="1850,800" size="100,100">After strolling for a while through the thick elm trees of Elmbourne you find yourself in the middle of a quaint forest glade, surrounded by great, towering trees that collectively provide a powerful sense of wisdom and strength.
+In the opposite direction is the local [[aquarium-&gt;Aquarium]].
+
+To the east is [[Central Station]].</tw-passagedata><tw-passagedata pid="9" name="Headquarters" tags="" position="1275,900" size="100,100">Stepping through the revolving doors your ears are shocked by a mountain of sound; feet rumbling, staplers clacking, and countless conversations. This is a seriously happening place! There isn&#39;t a moment to spare in setting up the Elliott Town Christmas Fair.
+
+You&#39;ve come here to offer any help that is needed, and as you look around an eager rabbit catches your eye. He hops on over to you at a steady pace, wary of the many spirit animals frantically running around. As he gets closer you recognise him as Petr Rabbit, the Czech rabbit recently moved to Elliott Town. He must have made a strong impression to be working at Elliott Town Headquarters already!
+
+&quot;$player! I&#39;m so glad you finally made it here. Did you have a bit of a sleep in? It&#39;s already 11am and we&#39;re opening the fair in an hour! Not to worry, almost everything is under control. I have one task I need you to take care of however. I need you to $taskDialogue Ok! Go! Be quick! And once you&#39;re done just go straight to the Grand Plaza for the opening!&quot;
+(set:$currentTask to $importantTask)
+Petr bounces away, likely off to take care of another errand.
+
+Outside is the [[Grand Plaza]].</tw-passagedata><tw-passagedata pid="10" name="Meerkat Burrows" tags="" position="1600,950" size="100,100">You&#39;re not exactly a burrows expert, but you&#39;re pretty sure these are holes dug by a meerkat, which would make this Josh&#39;s home!
+
+There&#39;s just enough light coming through to make out his place. It has a cosy feel despite being a dirt hole in the ground.
+
+Looking across the burrow you can see a |shelving&gt;[shelving unit], a |cupboard&gt;[cupboard], and a |computer&gt;[computer].
+
+You can go [[outside-&gt;Oldcastle]].
+
+(box:&quot;=XXX=&quot;)[(text-style:&#39;italic&#39;)[|description&gt;[]]]
+
+{(click-rerun:?shelving)[(replace:?description)[It&#39;s completely stacked with an assortment of cameras and lenses.]]
+(click-rerun:?cupboard)[(replace:?description)[The cupboard interior contains multiple musical instruments, including a violin and a guitar.]]
+(click-rerun:?computer)[(replace:?description)[Looks like he&#39;s been working on some sort of interactive fiction game...]]}</tw-passagedata><tw-passagedata pid="11" name="Forest Glade" tags="" position="1850,800" size="100,100">After strolling for a while through the thick elm trees of Elmbourne you find yourself in the middle of a quaint forest glade, surrounded by great, towering trees that collectively provide a powerful sense of wisdom and strength.
 
 There is chatter amongst the trees, from birds, red pandas, lemurs and all sorts of other creatures. The forest feels truly alive.
 
@@ -121,7 +171,7 @@ To the east is [[Lakeview-&gt;Lakeview Viewing Platform]].
 
 To the west is [[Oldcastle]].
 
-Above you are the [[treetops-&gt;Treetops]].</tw-passagedata><tw-passagedata pid="13" name="Lakeview Viewing Platform" tags="" position="2050,800" size="100,100">(if:(history:)&#39;s last is &quot;Forest Glade&quot;)[You find yourself in Lakeview. (if:$player is not &quot;Linda&quot; and $player is not &quot;Rick&quot;)[This must be where Rick and Linda live.]]
+Above you are the [[treetops-&gt;Treetops]].</tw-passagedata><tw-passagedata pid="12" name="Lakeview Viewing Platform" tags="" position="2050,800" size="100,100">(if:(history:)&#39;s last is &quot;Forest Glade&quot;)[You find yourself in Lakeview. (if:$player is not &quot;Linda&quot; and $player is not &quot;Rick&quot;)[This must be where Rick and Linda live.]]
 
 Funnily enough, here at Lakeview you find an excellent view of a lake. The water looks like its melted from the purest glacier to be found in spirit animalkind, and the air is crisp, its freshness striking your nostrils and imbuing a deep sense of vitality as you take a deep breath. The lake edge is visibly teeming with life, with fish, tadpoles, and dragonflies frantically darting about.
 
@@ -131,13 +181,15 @@ There is a sign pointing south towards a [[sandy spot-&gt;Sandy Spot]].
 
 To the west is [[Elmbourne-&gt;Forest Glade]].
 
-(if:$player is &quot;Rick&quot; or $player is &quot;Linda&quot;)[You can also go [[into the lake-&gt;Inside Lake]].]</tw-passagedata><tw-passagedata pid="14" name="Inside Lake" tags="" position="2175,800" size="100,100">Beginning with a strong push you glide through the water towards the centre of the lake. You&#39;re in your happy spot now where the water is calm and the sun is warm, and a gentle breeze is making your short journey feel effortless.
+(if:$player is &quot;Rick&quot; or $player is &quot;Linda&quot;)[You can also go [[into the lake-&gt;Inside Lake]].]</tw-passagedata><tw-passagedata pid="13" name="Inside Lake" tags="" position="2175,800" size="100,100">Beginning with a strong push you glide through the water towards the centre of the lake. You&#39;re in your happy spot now where the water is calm and the sun is warm, and a gentle breeze is making your short journey feel effortless.
 
 From here, to the west you can easily see the [[Lakeview viewing platform-&gt;Lakeview Viewing Platform]].
 
 To the north at the edge of the lake there is a [[grassy clearing-&gt;Lake North]].
 
-To the south is a [[small stretch of sand-&gt;Sandy Spot]].</tw-passagedata><tw-passagedata pid="15" name="Oldcastle" tags="" position="1600,725" size="100,100">You&#39;ve entered a small village on the outskirts of Elliott Town called Oldcastle. (if:$player is not &quot;Tash&quot;)[Tash lives around here somewhere.]
+To the south is a [[small stretch of sand-&gt;Sandy Spot]].</tw-passagedata><tw-passagedata pid="14" name="Oldcastle" tags="" position="1600,725" size="100,100">You&#39;ve entered a small village on the outskirts of Elliott Town called Oldcastle. (if:$player is not &quot;Tash&quot;)[Tash lives around here somewhere.]
+
+(if:$player is &quot;Tash&quot; and $currentTask is $importantTask)[On the ground a few metres away you get a strange tingling sensation that that particular patch of grass is special. It&#39;s calling to you. It&#39;s difficult not to [[inspect the grass-&gt;Grass Inspection]].]
 
 You can see a path leading eastwards towards [[Elmbourne forest-&gt;Forest Glade]].
 
@@ -145,24 +197,39 @@ In front of you there is a [[burrow in the ground-&gt;Fox Den]] that looks like 
 
 You can see Elliott Town&#39;s [[central station-&gt;Central Station]] at a walkable distance.
 
-Behind you there are even more [[burrows-&gt;Meerkat Burrows]].</tw-passagedata><tw-passagedata pid="16" name="Central Station" tags="" position="1425,725" size="100,100">This is Central Station.
+Behind you there are even more [[burrows-&gt;Meerkat Burrows]].</tw-passagedata><tw-passagedata pid="15" name="Central Station" tags="" position="1425,725" size="100,100">Around you is Central Station, the main point of entry that connects Elliott Town to places all over the world, places that many spirit animals will be coming from for the Christmas Fair!
 
-The [[city outskirts-&gt;Oldcastle]] are nearby.
+The walls are almost entirely made up of glass, stretching several stories high and allowing light to completely fill the space. At the centre of the giant room is a chandelier which several birds have chosen as their catchup spot.
 
-To the west is the [[Grand Plaza]].</tw-passagedata><tw-passagedata pid="17" name="Supermarket" tags="" position="1125,725" size="100,100">This is the supermarket.
+You linger at the thought of hopping aboard a train and exploring somewhere exciting, but duty calls! Unfortunately you&#39;ve got no time for catching trains at the moment.
 
-Outside is the [[Grand Plaza]].</tw-passagedata><tw-passagedata pid="18" name="Tree Canopy" tags="" position="1925,475" size="100,100">(if:visits is 1)[You make your way up to the highest heights of the trees, and after poking through and finding a seemingly sturdy area of the canopy to perch yourself on, you take a look around.]
-(else:)[You&#39;re perched atop the tree canopy.]
+[[Oldcastle]] is a short walk away.
+
+To the west is the [[Grand Plaza]].</tw-passagedata><tw-passagedata pid="16" name="Supermarket" tags="" position="1125,725" size="100,100">The door chimes as you step into the supermarket. Woollyworths! It&#39;s a funny name for a supermarket, but it makes sense when you hear about the long lineage of sheep that have made this supermarket famous.
+
+You laugh as you think of how many Elliotts how worked at Woollyworths. It&#39;s almost like a rite of passage!
+
+(if:$currentTask is $importantTask and $player is &quot;Rick&quot;)[
+	Petr didn&#39;t say exactly what food you&#39;re looking for. Perhaps the [[sheep at the customer service desk-&gt;Customer Service Sheep]] would know something?
+](else:)[
+	Through the door you can see the [[Grand Plaza]].
+]</tw-passagedata><tw-passagedata pid="17" name="Tree Canopy" tags="" position="1925,475" size="100,100">You make your way up to the highest heights of the trees, and after poking through and finding a seemingly sturdy area of the canopy to perch yourself on, you take a look around.
+
+(if:$player is &quot;Zara&quot; and $currentTask is $importantTask)[You can hear a [[troop of monkeys-&gt;Monkeys]] nearby. They must have the package I need!]
 
 The sun is high in the beautiful blue sky.
 
 To the west you can see Elliott Town sprawling across the horizon.
 
-To the east you can see a decently sized area where the trees disappear, indicate of the lake found at Lakeview.
+To the east you can see a decently sized area where the trees disappear, indicative of the lake found at Lakeview.
 
-You can go [[down amongst the tree branches-&gt;Treetops]].</tw-passagedata><tw-passagedata pid="19" name="Vars" tags="startup" position="1800,300" size="100,100">&lt;!-- prod --&gt;
+You can go [[down amongst the tree branches-&gt;Treetops]].</tw-passagedata><tw-passagedata pid="18" name="Vars" tags="startup" position="875,225" size="100,100">{&lt;!-- prod --&gt;
 (set:$foxDenLightOn to false)
-&lt;!-- debugging --&gt;</tw-passagedata><tw-passagedata pid="20" name="Fox Den Light On" tags="" position="1500,450" size="100,100">(set:$foxDenLightOn to true)
+(set:$currentTask to &quot;Find out what help is needed at Elliott Town Headquarters.&quot;)
+(set:$penultimateTask to &quot;Head to Elliott Town Headquarters&quot;)
+(set:$finalTask to &quot;Head to the Grand Plaza&quot;)
+(set:$showFooter to true)
+}</tw-passagedata><tw-passagedata pid="19" name="Fox Den Light On" tags="" position="1500,450" size="100,100">(set:$foxDenLightOn to true)
 {
 (if:(history:)&#39;s last is &quot;Fox Den Light Off&quot;)[The light flickers harshly bright before settling to a warm glow with an electric buzz.]
 }
@@ -178,19 +245,91 @@ There is a [[light switch-&gt;Fox Den Light Off]].
 You can also go [[outside-&gt;Oldcastle]].
 
 
+
+
 (box:&quot;=XXX=&quot;)[(text-style:&#39;italic&#39;)[|description&gt;[]]]
 
-(click-rerun:?table)[(replace:?description)[It&#39;s completely covered in a dazzling assortment of crystals.]]
-(click-rerun:?bookcase)[(replace:?description)[Plucking a large book from the shelf you open it to find pages upon pages of pressed four leaf clovers. Nothing less is expected from the Queen of Good Luck and Fortune!]]
-(click-rerun:?pantry)[(replace:?description)[Looking inside the pantry you see a mountain of vacuum sealed haggis. Perhaps Tash is sampling Scottish cuisine before a trip there?]]</tw-passagedata><tw-passagedata pid="21" name="Fox Den Light Off" tags="" position="1675,450" size="100,100">(set:$foxDenLightOn to false)
-{
+{(click-rerun:?table)[(replace:?description)[It&#39;s completely covered in a dazzling assortment of crystals.]]
+(click-rerun:?bookcase)[(replace:?description)[Plucking a large book from the shelf you open it to find pages upon pages of pressed four leaf clovers. Nothing less is expected from the Queen of Luck and Fortune!]]
+(click-rerun:?pantry)[(replace:?description)[Looking inside the pantry you see a mountain of vacuum sealed haggis. Perhaps Tash is sampling Scottish cuisine before a trip there?]]}</tw-passagedata><tw-passagedata pid="20" name="Fox Den Light Off" tags="" position="1675,450" size="100,100">{(set:$foxDenLightOn to false)
 (if:$player is &quot;Tash&quot; and visits is 1)[Ready to seize the day you leap up ready for action, kicking up a swirl of dirt in the den you call home. It&#39;s a cosy place you found a few years ago on the outskirts of Elliott Town, in an area called Oldcastle. What a strange name!]
 
 (if:(history:)&#39;s last is &quot;Fox Den Light On&quot;)[The den plunges into darkness. You can&#39;t really see anything now!]
 (else:)[&lt;br&gt;&lt;br&gt;It&#39;s a bit dark in here, but that should be expected for fox dens as they ARE holes in the ground.]
 }
 
-You can faintly see a [[light switch-&gt;Fox Den Light On]] (in a fox den? yes we have lights in fox dens these days, keep up!).</tw-passagedata></tw-storydata>
+You can faintly see a [[light switch-&gt;Fox Den Light On]] (in a fox den? yes we have lights in fox dens these days, keep up!).</tw-passagedata><tw-passagedata pid="21" name="Debug Vars" tags="debug-startup" position="1000,225" size="100,100">{
+
+}</tw-passagedata><tw-passagedata pid="22" name="Footer" tags="footer" position="1200,225" size="100,100">(if:$showFooter)[
+---
+Current task: $currentTask]</tw-passagedata><tw-passagedata pid="23" name="Customer Service Sheep" tags="" position="1125,850" size="100,100">{(set:$showFooter to false)}
+You waddle over to the sheep at the customer service desk, and before you can say anything the sheep has already started bleating.
+
+&quot;BaaaAAAaaa - is that you Rick? Yes I think it is; Petr told me - baaaaAAAAaaa - you&#39;d be coming by. He ordered in a meat platter which I believe is to eaten at - BAAAaaaAAAaa - at the fair opening in the Grand Plaza. Don&#39;t ask me why we&#39;re having a meat platter when we&#39;re all spirit animals here, I just hope to sheep god that there&#39;s no lamb in there. Anyway - BAAAaaa - here&#39;s the meat platter, it&#39;s already paid for. Go enjoy the fair!&quot;
+
+He certainly made an interesting point about the meat. Maybe it should be checked for duck meat later...
+
+In the meantime, you&#39;ve got the food so there&#39;s nothing else to do but [[head back to the Grand Plaza-&gt;Grand Plaza Opening]] and enjoy the opening.</tw-passagedata><tw-passagedata pid="24" name="Reception Desk" tags="" position="1275,425" size="100,100">As you approach the reception you vaguely recognise the seal that&#39;s working there. Turns out she recognises you too as you can&#39;t get a word in before she starts talking.
+
+&quot;Ohhhhhh myyyyyy goooooooosh, it&#39;s you! Linda! I haven&#39;t see you in soooooo long. How have you been? How are the kids? Looove what you&#39;ve done with your shell! Oh my gosh, listen to me blabber, I&#39;m like a chipmunk on caffeine! Ok for realsies I would love to catch up but I&#39;ve actually got a very serious problem that I need your help with! I think one of my aquariums is about to burst and I need you to fix it. It shouldn&#39;t take too long, here, take this amazing duct tape. It should be enough to patch the leak, at least long enough for opening of the Christmas fair.
+
+&quot;The aquarium is [[just behind you-&gt;Aquarium Fix]]. Thank you Linda!&quot; </tw-passagedata><tw-passagedata pid="25" name="Aquarium Fix" tags="" position="1150,550" size="100,100">{(set:$showFooter to false)}
+Clambering to the top of the aquarium you graciously dive into the water. They&#39;ve heated the water quite nicely here, and the visibility is excellent, which helps to quickly spot the leaky problem.
+
+Gliding down, with one swift motion you slap the duct tape over the leak, and voila, the problem is solved. Staring out from the aquarium you can see the seal at the reception slapping her flippers in approval.
+
+With the leak fixed, there&#39;s nothing else to do but [[head to the Grand Plaza-&gt;Grand Plaza Opening]] and enjoy the opening fair!</tw-passagedata><tw-passagedata pid="26" name="Grass Inspection" tags="" position="1725,700" size="100,100">(set:$showFooter to false)
+You&#39;ve had this feeling so many times before that even before you walked over to this patch of grass, you knew that you&#39;d find at least a single four leaf clover. But as you push your red snout around the grass you find that there&#39;s more four leaf clovers you&#39;ve ever seen in a single patch before! What an incredible find! It must be a very lucky day, and it&#39;s all the better that today is the start of the Christmas Fair.
+
+Plucking the four leaf clovers up you tuck them away for safekeeping.
+
+With your four leaf clovers and extra luck found for Elliott Town it&#39;s now to time to [[head to the Grand Plaza-&gt;Grand Plaza Opening]] and enjoy the opening.</tw-passagedata><tw-passagedata pid="27" name="Monkeys" tags="" position="2050,600" size="100,100">{(set:$showFooter to false)}
+As you expertly navigate the tree canopy to see where the monkey sounds are coming from - WHAM! You feel a solid thud on your chest and see the grey blur of a monkey streaking across your vision. Quickly you see that the thud came from the package you were looking for, and you grab it before it falls any further. The monkey must have given it to you while passing, rather aggressively, but perhaps that&#39;s just monkey things.
+
+From behind you the monkey shouts &quot;We&#39;re really sorry we took the package! We were just so excited about our Christmas mail we forgot to check it was even for us! Please take the package back, I know it&#39;s very important for the Christmas Fair!&quot;
+
+The monkey leaps away, almost instantly lost from sight amongst the thick leaf canopy.
+
+With the package in hand now, there&#39;s nothing else to do but [[head to Grand Plaza-&gt;Grand Plaza Opening]] and enjoy the opening.</tw-passagedata><tw-passagedata pid="28" name="Grand Plaza Opening" tags="" position="1400,1150" size="100,100">Arriving at the entrance to the Grand Plaza you see Petr Rabbit, bouncing with excitement.
+
+{(if:$player is &quot;Zara&quot;)[&quot;Thank you so much for getting this package!&quot;
+
+Petr spends a minute clambering his paws around the package, attempting to open it peacefully until foregoing any semblance of silence and violently ripping into it with his teeth.
+
+&quot;Look! It&#39;s a giant party popper!]
+(if:$player is &quot;Tash&quot;)[&quot;Thank you so much for getting these four leaf clovers! I feel like nothing can go wrong now! Yippee! This is going to be the best Christmas Fair ever!!!&quot;]
+(if:$player is &quot;Rick&quot;)[&quot;Thank you for getting this meat platter! I know you were probably worried when you saw meat, but don&#39;t worry! It&#39;s not actually meat! It&#39;s all fake beef! And it&#39;s ready to eat! Hurray!]
+(if:$player is &quot;Linda&quot;)[&quot;Oh thank goodness you fixed that leak at the aquarium! With a tank of that size so close to the Grand Plaza I was seriously worried it might spill out while the Christmas Fair is on! But now I&#39;m not worried at all!]}
+
+&quot;Now we can [[start the Christmas Fair-&gt;Christmas Fair]]!&quot;
+
+
+</tw-passagedata><tw-passagedata pid="29" name="Christmas Fair" tags="" position="1400,1275" size="100,100">With a loud bang the sky is showered with confetti, and fireworks explode over the Grand Plaza as the renowned Elliott Town Band begin their fanfare on the performance stage.
+
+The plaza has been beautifully decorated, and somehow you totally missed before that there&#39;s a giant Christmas tree standing beside the stage. It&#39;s lavishly ornamented.
+
+There are rows upon rows of stalls all over the plaza selling hot drinks, food, arts, and crafts. It&#39;s wonderful to see so many animals from all over the world enjoying themselves.
+
+A voice shouts out from the distance. It&#39;s Petr Rabbit again...
+
+&quot;Hey $player! Come on over here! The rest of your family is here and they want to [[take a group photo-&gt;Group Photo]] with you!&quot;
+</tw-passagedata><tw-passagedata pid="30" name="Group Photo" tags="" position="1400,1400" size="100,100">Petr is standing by the stage, and with him you can see everyone else from the Elliott family: $playerFamily.
+
+You walk over and find a good spot amongst your family, feeling like you&#39;re at home and enjoying the warmth of their company.
+
+Petr has walked a few metres away and set up a tripod with a sporty looking camera.
+
+&quot;Thanks so much for your help today everyone! Without your help there&#39;s no way we could have put on the Elliott Town Christmas Fair! Besides, what&#39;s an Elliott Town fair without the Elliotts!
+
+&quot;Zara, could you please help taking the photo?&quot;
+
+(if:$player is &quot;Zara&quot;)[You leap with excitement towards the camera, and counting down from 3... 2... 1... you [[take the photo-&gt;Photo Taken]].]
+(else:)[Zara leaps with excitement towards the camera, and counting down from 3... 2... 1... she [[takes the photo-&gt;Photo Taken]].]</tw-passagedata><tw-passagedata pid="31" name="Photo Taken" tags="" position="1400,1525" size="100,100">&lt;img src=&quot;group_photo.jpeg&quot;&gt;
+
+=&gt;&lt;=
+What a beautiful family!
+
+Thanks for playing Elliott Town!</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
